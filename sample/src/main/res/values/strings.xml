@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">ToolTipDialog</string>
+    <string name="app_name">ToolTipDialog Sample</string>
+    <string name="action_settings">Settings</string>
 </resources>

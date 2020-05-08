@@ -1,4 +1,4 @@
-package com.kevincrimi.tooltipdialog
+package com.kevincrimi.sample
 
 import org.junit.Test
 
