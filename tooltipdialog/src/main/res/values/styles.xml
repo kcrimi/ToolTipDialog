@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ToolTipDialog"/>
+
+    <style name="ToolTipDialog.Text">
+        <item name="android:textColor">?android:colorForeground</item>
+    </style>
+
+    <style name="ToolTipDialog.Text.Subtitle">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+
+    <style name="ToolTipDialog.Text.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingExtra">1sp</item>
+    </style>
+
+    <style name="ToolTipDialog.Text.Body">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+
+
+</resources>

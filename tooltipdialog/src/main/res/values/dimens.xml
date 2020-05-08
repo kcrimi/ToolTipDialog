@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tooltip_dialog_background_padding">20dp</dimen>
+    <dimen name="tooltip_dialog_line_vertical_margin_small">8dp</dimen>
+    <dimen name="tooltip_dialog_line_vertical_margin_large">20dp</dimen>
+</resources>

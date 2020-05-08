@@ -7,6 +7,7 @@ import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.view.*
 import android.widget.*
+import com.kevincrimi.tooltipdialog.R
 import com.skillshare.Skillshare.R
 import com.skillshare.Skillshare.util.Utils
 
@@ -52,7 +53,7 @@ class ToolTipDialog(context: Context, parentActivity: Activity) : Dialog(context
     private var content: String = ""
 
     init {
-        setContentView(R.layout.tooltip_dialog)
+        setContentView(R.layout.tootip_dialog)
         contentView = findViewById(R.id.content_view)
         container = findViewById(R.id.container)
         upArrow = findViewById(R.id.tooltip_top_arrow)
