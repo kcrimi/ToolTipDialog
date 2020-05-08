@@ -24,5 +24,12 @@
         <item name="android:lineSpacingExtra">4sp</item>
     </style>
 
+    <style name="SkStyle.DialogTheme.FullScreen" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@style/tooltip_dialog_anaimation</item>
+    </style>
+
 
 </resources>

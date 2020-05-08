@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="tooltip_dialog_activity_margin">16dp</dimen>
     <dimen name="tooltip_dialog_background_padding">20dp</dimen>
     <dimen name="tooltip_dialog_line_vertical_margin_small">8dp</dimen>
     <dimen name="tooltip_dialog_line_vertical_margin_large">20dp</dimen>
+
+    <style name="tooltip_dialog_anaimation">
+        <item name="android:windowEnterAnimation">@anim/fade_in_animate_up</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
 </resources>

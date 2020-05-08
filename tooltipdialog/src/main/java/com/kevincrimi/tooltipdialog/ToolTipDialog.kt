@@ -8,8 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.*
 import android.widget.*
 import com.kevincrimi.tooltipdialog.R
-import com.skillshare.Skillshare.R
-import com.skillshare.Skillshare.util.Utils
+import com.kevincrimi.tooltipdialog.ScreenUtils
 
 /**
  * Created by kcrimi on 2/12/18.
@@ -33,8 +32,12 @@ import com.skillshare.Skillshare.util.Utils
  * POSSIBLE IMPROVEMENT: It would be nice to figure out a way to find the window height minus the
  *  status bar height without having to pass in an activity
  */
-class ToolTipDialog(context: Context, parentActivity: Activity) : Dialog(context, R.style.SkStyle_DialogTheme_FullScreen) {
-    private var arrowWidth = Utils.getPixels(context, 15f)
+class ToolTipDialog(
+    context: Context,
+    private val parentActivity: Activity
+) : Dialog(context, R.style.SkStyle_DialogTheme_FullScreen) {
+    private val screenUtils = ScreenUtils
+    private var arrowWidth = screenUtils.getPixels(context, 15f)
     private var contentView : RelativeLayout
     private var container : ViewGroup
     private var upArrow : ImageView
@@ -66,7 +69,7 @@ class ToolTipDialog(context: Context, parentActivity: Activity) : Dialog(context
         val usableView = parentActivity.window.findViewById<View>(Window.ID_ANDROID_CONTENT)
         windowHeight = usableView.height
         windowWidth = usableView.width
-        statusBarHeight = Utils.getScreenHeight(context) - windowHeight
+        statusBarHeight = screenUtils.getScreenHeight(context) - windowHeight
 
         // Make Dialog window span the entire screen
         window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
@@ -152,7 +155,7 @@ class ToolTipDialog(context: Context, parentActivity: Activity) : Dialog(context
     }
 
     private fun adjustContainerMargin(x: Int) {
-        var leftMargin = context.resources.getDimension(R.dimen.activity_margin)
+        var leftMargin = context.resources.getDimension(R.dimen.tooltip_dialog_activity_margin)
         var rightMargin = leftMargin
         if(x > windowWidth - windowWidth / 3) {
             leftMargin = 30f
@@ -162,8 +165,8 @@ class ToolTipDialog(context: Context, parentActivity: Activity) : Dialog(context
             rightMargin = 30f
         }
         var params = container.layoutParams as RelativeLayout.LayoutParams
-        params.leftMargin = Utils.getPixels(context, leftMargin)
-        params.rightMargin = Utils.getPixels(context, rightMargin)
+        params.leftMargin = screenUtils.getPixels(context, leftMargin)
+        params.rightMargin = screenUtils.getPixels(context, rightMargin)
         container.layoutParams = params
     }
 
