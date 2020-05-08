@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tooltip_dialog_content_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/tooltip_top_arrow"
+            android:visibility="gone"
+            app:srcCompat="@drawable/tooltip_dialog_triangle_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/tooltip_dialog_box"
+            android:gravity="left"
+            android:layout_below="@id/tooltip_top_arrow"
+            android:orientation="vertical"
+            android:background="@drawable/tooltip_dialog_background"
+            android:padding="@dimen/tooltip_dialog_background_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tooltip_subtitle"
+                style="@style/ToolTipDialog.Text.Subtitle"
+                tools:text="Subtitle goes here!"
+                android:layout_marginBottom="@dimen/tooltip_dialog_line_vertical_margin_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/ToolTipDialog.Text.Title"
+                tools:text="This is where your Header Goes!"
+                android:layout_marginBottom="@dimen/tooltip_dialog_line_vertical_margin_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tooltip_content"
+                style="@style/ToolTipDialog.Text.Body"
+                tools:text="This is where you can add more detailed information about your exciting new feature."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/bottom_arrow"
+            android:visibility="gone"
+            android:layout_below="@id/tooltip_dialog_box"
+            app:srcCompat="@drawable/tooltip_dialog_triangle_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</RelativeLayout>

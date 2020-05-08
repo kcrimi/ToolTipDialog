@@ -11,6 +11,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -24,6 +25,9 @@ android {
     }
 
 }
+
+apply from: 'bintray.gradle'
+apply from: 'publish.gradle'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
