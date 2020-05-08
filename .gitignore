@@ -1,0 +1,19 @@
+# IntelliJ files
+.idea
+.idea/*
+*.iml
+
+# OSX files
+.DS_Store
+
+# vi swap files
+*.swp
+
+# backup files
+*.bak
+
+# gradle directory
+.gradle
+build/
+
+local.properties

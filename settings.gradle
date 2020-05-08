@@ -1,0 +1,3 @@
+rootProject.name='ToolTipDialog'
+include ':app'
+include ':tooltipdialog'
