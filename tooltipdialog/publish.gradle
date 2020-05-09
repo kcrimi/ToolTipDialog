@@ -83,11 +83,10 @@ bintray {
         publicDownloadNumbers = true
         version {
             desc = libraryDescription
-            // Uncomment 4 lines below to enable gpg auto signing
-            //gpg {
-            //    sign = true //Determines whether to GPG sign the files. The default is false
-            //    passphrase = properties.getProperty("bintray.gpg.password")
-            //}
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                passphrase = System.getenv("BINTRAY_GPG_PASSWORD")
+            }
         }
     }
 }
