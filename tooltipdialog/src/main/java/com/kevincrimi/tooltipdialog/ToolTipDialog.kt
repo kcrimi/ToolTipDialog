@@ -1,14 +1,15 @@
-package com.skillshare.Skillshare.client.common.dialog
+package com.kevincrimi.tooltipdialog
 
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.*
 import android.widget.*
-import com.kevincrimi.tooltipdialog.R
-import com.kevincrimi.tooltipdialog.ScreenUtils
+import androidx.core.content.ContextCompat
 
 /**
  * Created by kcrimi on 2/12/18.
@@ -34,7 +35,7 @@ import com.kevincrimi.tooltipdialog.ScreenUtils
  */
 class ToolTipDialog(
     context: Context,
-    private val parentActivity: Activity
+    parentActivity: Activity
 ) : Dialog(context, R.style.SkStyle_DialogTheme_FullScreen) {
     private val screenUtils = ScreenUtils
     private var arrowWidth = screenUtils.getPixels(context, 15f)
@@ -45,7 +46,7 @@ class ToolTipDialog(
     private var titleText : TextView
     private var contentText : TextView
     private var subtitleText : TextView
-    //    private var peekThroughViews = ArrayList<View>()
+    private var peekThroughViews = ArrayList<View>()
     private var windowHeight: Int
     private var windowWidth: Int
     private var statusBarHeight: Int
@@ -57,7 +58,7 @@ class ToolTipDialog(
 
     init {
         setContentView(R.layout.tootip_dialog)
-        contentView = findViewById(R.id.content_view)
+        contentView = findViewById(R.id.tooltip_dialog_content_view)
         container = findViewById(R.id.container)
         upArrow = findViewById(R.id.tooltip_top_arrow)
         downArrow = findViewById(R.id.bottom_arrow)
@@ -83,41 +84,43 @@ class ToolTipDialog(
             this.dismiss() }
     }
 
-//    override fun show() {
-//        drawPeekingViews()
-//        super.show()
-//    }
+    override fun show() {
+        drawPeekingViews()
+        super.show()
+    }
 
-//    private fun drawPeekingViews() {
-//        val bitmap = Bitmap.createBitmap(windowWidth, windowHeight, Bitmap.Config.ARGB_8888)
-//        val canvas = Canvas(bitmap)
-//        for (view: View in peekThroughViews) {
-//            val viewBitmap = Utils.bitmapFromView(view)
-//            var xy = IntArray(2)
-//            view.getLocationOnScreen(xy)
-//
-//            canvas.drawBitmap(viewBitmap,
-//                    Rect(0, 0, view.measuredWidth, view.measuredHeight),
-//                    Rect(xy[0], xy[1] - statusBarHeight, xy[0] + view.measuredWidth, xy[1] + view.measuredHeight -statusBarHeight),
-//                    null)
-//        }
-//        contentView.background = BitmapDrawable(context.resources, bitmap)
-//    }
+    private fun drawPeekingViews() {
+        Log.d("KEVIN", "width: $windowWidth, height: $windowHeight")
+        val bitmap = Bitmap.createBitmap(windowWidth, windowHeight, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        canvas.drawColor(ContextCompat.getColor(context, R.color.tooltip_background_shade))
+        for (view: View in peekThroughViews) {
+            val viewBitmap = screenUtils.bitmapFromView(view)
+            val xy = IntArray(2)
+            view.getLocationOnScreen(xy)
 
-//    /**
-//     * Add views that will be drawn onto the dialog shade
-//     */
-//    fun addPeekThroughView(view : View) : ToolTipDialog {
-//        peekThroughViews.add(view)
-//        return this
-//    }
+            canvas.drawBitmap(viewBitmap,
+                    Rect(0, 0, view.measuredWidth, view.measuredHeight),
+                    Rect(xy[0], xy[1] - statusBarHeight, xy[0] + view.measuredWidth, xy[1] + view.measuredHeight -statusBarHeight),
+                    null)
+        }
+        contentView.background = BitmapDrawable(context.resources, bitmap)
+    }
+
+    /**
+     * Add views that will be drawn onto the dialog shade
+     */
+    fun addPeekThroughView(view : View) : ToolTipDialog {
+        peekThroughViews.add(view)
+        return this
+    }
 
     /**
      * Set the position on screen for the dialog arrow to point to. This will set the dialog above
      * the point if y is below the halfway mark and below the point if the point is above halfway.
      */
     fun pointTo(x: Int, y: Int) : ToolTipDialog {
-        var params = container.layoutParams as RelativeLayout.LayoutParams
+        val params = container.layoutParams as RelativeLayout.LayoutParams
 
         adjustContainerMargin(x)
 
@@ -142,7 +145,7 @@ class ToolTipDialog(
     }
 
     private fun pointArrowTo(arrow: ImageView, x: Int) {
-        var arrowParams = arrow.layoutParams as RelativeLayout.LayoutParams
+        val arrowParams = arrow.layoutParams as RelativeLayout.LayoutParams
         if (x > windowWidth / 2) {
             arrowParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
             arrowParams.rightMargin = windowWidth - x - arrowWidth / 2
@@ -164,7 +167,7 @@ class ToolTipDialog(
             leftMargin = 0f
             rightMargin = 30f
         }
-        var params = container.layoutParams as RelativeLayout.LayoutParams
+        val params = container.layoutParams as RelativeLayout.LayoutParams
         params.leftMargin = screenUtils.getPixels(context, leftMargin)
         params.rightMargin = screenUtils.getPixels(context, rightMargin)
         container.layoutParams = params
@@ -174,7 +177,7 @@ class ToolTipDialog(
      * Sets the y position of the top of the dialog box. This will not use any arrow pointers
      */
     fun setYPosition(y: Int) : ToolTipDialog {
-        var params = container.layoutParams as RelativeLayout.LayoutParams
+        val params = container.layoutParams as RelativeLayout.LayoutParams
         params.addRule(RelativeLayout.ALIGN_PARENT_TOP)
         params.topMargin = y - statusBarHeight
         return this

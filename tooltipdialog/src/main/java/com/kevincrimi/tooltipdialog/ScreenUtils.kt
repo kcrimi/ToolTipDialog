@@ -1,8 +1,12 @@
 package com.kevincrimi.tooltipdialog
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Point
+import android.view.View
 import android.view.WindowManager
+
 
 internal object ScreenUtils {
 
@@ -17,5 +21,14 @@ internal object ScreenUtils {
         val size = Point()
         wm.defaultDisplay.getSize(size)
         return size.y
+    }
+
+    fun bitmapFromView(view: View): Bitmap {
+        val bitmap =
+            Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        view.layout(view.left, view.top, view.right, view.bottom)
+        view.draw(canvas)
+        return bitmap
     }
 }
