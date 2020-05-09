@@ -1,39 +1,97 @@
 package com.kevincrimi.sample
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import com.skillshare.Skillshare.client.common.dialog.ToolTipDialog
 
 import kotlinx.android.synthetic.main.activity_sample.*
 
 class SampleActivity : AppCompatActivity() {
+
+    private val buttonPointUp by lazy { button_pointing_up }
+    private val buttonNoArrowTop by lazy { button_no_arrow_top }
+    private val buttonNowArrowBottom by lazy { button_no_arrow_bottom }
+    private val buttonPointDown by lazy { button_pointing_down }
+    private val fabButton by lazy { sample_fab_button }
+    private var tooltipsClicked = 0
+
+    private val toolTipListener = object: ToolTipDialog.ToolTipListener {
+        override fun onClickToolTip() {
+            tooltipsClicked++
+            Toast.makeText(this@SampleActivity, "You've clicked $tooltipsClicked tooltips",Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sample)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        setupButtons()
+    }
+
+    private fun setupButtons() {
+        buttonPointUp.setOnClickListener {
+            val location = intArrayOf(0,0)
+            it.getLocationInWindow(location);
+            ToolTipDialog(this, this)
+                .title("Dialog can point up!")
+                .pointTo(location[0] + it.width / 2, location[1] + it.height)
+                .content("This is pointing up to the button you just clicked")
+                .subtitle("Tooltip with arrow")
+                .setToolTipListener(toolTipListener)
+                .show()
         }
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_sample, menu)
-        return true
-    }
+        buttonNoArrowTop.setOnClickListener {
+            val location = intArrayOf(0,0)
+            it.getLocationInWindow(location);
+            ToolTipDialog(this, this)
+                .title("Dialog can appear below!")
+                .setYPosition(location[1] + it.height)
+                .content("This is underneath the button you just clicked")
+                .subtitle("Tooltip without arrow")
+                .setToolTipListener(toolTipListener)
+                .show()
+        }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+        buttonNowArrowBottom.setOnClickListener {
+            val location = intArrayOf(0,0)
+            it.getLocationInWindow(location);
+            ToolTipDialog(this, this)
+                .title("Dialog can appear below!")
+                .setYPosition(location[1] + it.height)
+                .content("This is underneath the button you just clicked")
+                .subtitle("Tooltip without arrow")
+                .setToolTipListener(toolTipListener)
+                .show()
+        }
+
+        buttonPointDown.setOnClickListener {
+            val location = intArrayOf(0,0)
+            it.getLocationInWindow(location);
+            ToolTipDialog(this, this)
+                .title("Dialog can point down!")
+                .pointTo(location[0] + it.width / 2, location[1] - it.height)
+                .content("This is pointing up to the button you just clicked")
+                .subtitle("Tooltip with arrow")
+                .setToolTipListener(toolTipListener)
+                .show()
+        }
+
+        fabButton.setOnClickListener {
+            val location = intArrayOf(0,0)
+            it.getLocationInWindow(location);
+            ToolTipDialog(this, this)
+                .title("You can point to individual views!")
+                .pointTo(location[0] + it.width / 2, location[1] - it.height)
+                .content("You can point to any of your views on screen just like this FAB")
+                .subtitle("Tooltip with arrow")
+                .setToolTipListener(toolTipListener)
+                .show()
         }
     }
 }

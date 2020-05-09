@@ -20,9 +20,9 @@ import com.kevincrimi.tooltipdialog.ScreenUtils
  * Example Usage:
  *
  *  ToolTipDialog toolTipDialog = new ToolTipDialog(getContext(), getActivity());
- *  int[] location = new int[2];
- *  View targetView = getContentView().findViewById(R.id.target_view_id);
- *  targetView.getLocationInWindow(location);
+   int[] location = new int[2];
+   View targetView = getContentView().findViewById(R.id.target_view_id);
+   targetView.getLocationInWindow(location);
  *  toolTipDialog
  *      .pointTo(location[0] + targetView.getWidth() / 2, location[1] + targetView.getHeight())
  *      .addPeekThroughView(targetView)
