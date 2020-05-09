@@ -61,7 +61,7 @@ class SampleActivity : AppCompatActivity() {
                 .subtitle("Tooltip without arrow")
                 .setToolTipListener(toolTipListener)
 
-            if (shadeToggle.isEnabled) {
+            if (shadeToggle.isChecked) {
                 dialog.addPeekThroughView(it)
             }
 
@@ -75,7 +75,7 @@ class SampleActivity : AppCompatActivity() {
                 .subtitle("Default Tooltip")
                 .setToolTipListener(toolTipListener)
 
-            if (shadeToggle.isEnabled) {
+            if (shadeToggle.isChecked) {
                 dialog.addPeekThroughView(it)
             }
 
@@ -92,7 +92,7 @@ class SampleActivity : AppCompatActivity() {
                 .subtitle("Tooltip with arrow")
                 .setToolTipListener(toolTipListener)
 
-            if (shadeToggle.isEnabled) {
+            if (shadeToggle.isChecked) {
                 dialog.addPeekThroughView(it)
             }
 
@@ -109,7 +109,7 @@ class SampleActivity : AppCompatActivity() {
                 .subtitle("Tooltip with arrow")
                 .setToolTipListener(toolTipListener)
 
-            if (shadeToggle.isEnabled) {
+            if (shadeToggle.isChecked) {
                 dialog.addPeekThroughView(it)
             }
 

@@ -36,7 +36,7 @@ import androidx.core.content.ContextCompat
 class ToolTipDialog(
     context: Context,
     parentActivity: Activity
-) : Dialog(context, R.style.SkStyle_DialogTheme_FullScreen) {
+) : Dialog(context, R.style.TooltipDialogTheme) {
     private val screenUtils = ScreenUtils
     private var arrowWidth = screenUtils.getPixels(context, 15f)
     private var contentView : RelativeLayout
@@ -85,25 +85,25 @@ class ToolTipDialog(
     }
 
     override fun show() {
-        drawPeekingViews()
+        if (peekThroughViews.isNotEmpty()) drawPeekingViews()
         super.show()
     }
 
     private fun drawPeekingViews() {
-        Log.d("KEVIN", "width: $windowWidth, height: $windowHeight")
         val bitmap = Bitmap.createBitmap(windowWidth, windowHeight, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         canvas.drawColor(ContextCompat.getColor(context, R.color.tooltip_background_shade))
-        for (view: View in peekThroughViews) {
-            val viewBitmap = screenUtils.bitmapFromView(view)
+        peekThroughViews.forEach {
+            val viewBitmap = screenUtils.bitmapFromView(it)
             val xy = IntArray(2)
-            view.getLocationOnScreen(xy)
+            it.getLocationOnScreen(xy)
 
             canvas.drawBitmap(viewBitmap,
-                    Rect(0, 0, view.measuredWidth, view.measuredHeight),
-                    Rect(xy[0], xy[1] - statusBarHeight, xy[0] + view.measuredWidth, xy[1] + view.measuredHeight -statusBarHeight),
-                    null)
+                Rect(0, 0, it.measuredWidth, it.measuredHeight),
+                Rect(xy[0], xy[1] - statusBarHeight, xy[0] + it.measuredWidth, xy[1] + it.measuredHeight -statusBarHeight),
+                null)
         }
+
         contentView.background = BitmapDrawable(context.resources, bitmap)
     }
 
@@ -208,10 +208,5 @@ class ToolTipDialog(
 
     interface ToolTipListener {
         fun onClickToolTip()
-    }
-
-    interface CtaButton {
-        fun getText() : String
-        fun onClick()
     }
 }
