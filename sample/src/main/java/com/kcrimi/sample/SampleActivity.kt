@@ -1,10 +1,9 @@
-package com.kevincrimi.sample
+package com.kcrimi.sample
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
-import com.kevincrimi.tooltipdialog.ToolTipDialog
+import com.kcrimi.tooltipdialog.ToolTipDialog
 
 import kotlinx.android.synthetic.main.activity_sample.*
 

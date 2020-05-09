@@ -1,4 +1,4 @@
-package com.kevincrimi.sample
+package com.kcrimi.sample
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

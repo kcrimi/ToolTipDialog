@@ -1,4 +1,4 @@
-package com.kevincrimi.tooltipdialog
+package com.kcrimi.tooltipdialog
 
 import android.app.Activity
 import android.app.Dialog
@@ -6,7 +6,6 @@ import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
-import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.core.content.ContextCompat
