@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="48dp"
-            android:text="No Arrow, Bottom" />
+            android:text="Default location" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_pointing_down"

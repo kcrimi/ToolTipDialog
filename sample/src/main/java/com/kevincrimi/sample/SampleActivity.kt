@@ -59,13 +59,10 @@ class SampleActivity : AppCompatActivity() {
         }
 
         buttonNowArrowBottom.setOnClickListener {
-            val location = intArrayOf(0,0)
-            it.getLocationInWindow(location);
             ToolTipDialog(this, this)
-                .title("Dialog can appear below!")
-                .setYPosition(location[1] + it.height)
-                .content("This is underneath the button you just clicked")
-                .subtitle("Tooltip without arrow")
+                .title("Dialog with Default location")
+                .content("When you don't set any location for the dialog it presents on top by default")
+                .subtitle("Default Tooltip")
                 .setToolTipListener(toolTipListener)
                 .show()
         }
