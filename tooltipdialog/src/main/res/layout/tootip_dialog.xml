@@ -13,7 +13,7 @@
 
         <ImageView
             android:id="@+id/tooltip_top_arrow"
-            android:visibility="visible"
+            android:visibility="gone"
             app:srcCompat="@drawable/tooltip_dialog_triangle_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -58,7 +58,7 @@
             android:layout_below="@id/tooltip_dialog_box"
             app:srcCompat="@drawable/tooltip_dialog_triangle_down"
             android:layout_width="wrap_content"
-            android:layout_height="15.9dp"/>
+            android:layout_height="wrap_content"/>
     </RelativeLayout>
 
 </RelativeLayout>
