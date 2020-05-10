@@ -1,5 +1,6 @@
 ToolTipDialog
 =============
+[ ![Download](https://api.bintray.com/packages/kcrimi/oss_android/com.kcrimi.tooltipdialog/images/download.svg) ](https://bintray.com/kcrimi/oss_android/com.kcrimi.tooltipdialog/_latestVersion)
 
 An easy-to-use dialog to add tooltips to your app with teh ability to point to specific screen
  locations and also highlight views on-screen.
