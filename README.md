@@ -29,38 +29,6 @@ dependencies {
 
 Usage
 -----
-
-## Basic
-
-ToolTipDialog
-=============
-
-An easy-to-use dialog to add tooltips to your app with teh ability to point to specific screen
- locations and also highlight views on-screen.
-
-Great for on-boarding, calling out new features, or simply calling out bits of UI.
-
-
-Features
---------
-
-* Show a default dialog pop up banner
-* Align the dialog to a certain vertical location on screen
-* Point to a specific element on-screen 
-* Highlight specific UI elements by letting them "peek through" a background shade
- 
-Gradle Setup
-------
-In your app's `build.gradle` add 
-
-```Groovy
-dependencies {
-    implementation 'com.kcrimi.tooltipdialog:tooltipdialog:1.0.0'
-}
-```
-
-Usage
------
 The below are shown as called by an Activity
 
 ## Basic
