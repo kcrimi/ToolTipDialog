@@ -87,7 +87,7 @@ class SampleActivity : AppCompatActivity() {
             val dialog = ToolTipDialog(this, this)
                 .title("Dialog can point down!")
                 .pointTo(location[0] + it.width / 2, location[1] - it.height)
-                .content("This is pointing up to the button you just clicked")
+                .content("This is pointing down to the button you just clicked")
                 .subtitle("Tooltip with arrow")
                 .setToolTipListener(toolTipListener)
 
