@@ -2,14 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-buildscript {
-    repositories {
-        maven {
-            url "https://dl.bintray.com/kcrimi/oss_android"
-        }
-    }
-}
-
 android {
     compileSdkVersion 29
 
