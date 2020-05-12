@@ -1,6 +1,6 @@
 ToolTipDialog
 =============
-[ ![Download](https://api.bintray.com/packages/kcrimi/oss_android/com.kcrimi.tooltipdialog/images/download.svg) ](https://bintray.com/kcrimi/oss_android/com.kcrimi.tooltipdialog/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/kcrimi/oss_android/com.kcrimi.tooltipdialog/images/download.svg) ](https://bintray.com/kcrimi/oss_android/com.kcrimi.tooltipdialog/_latestVersion) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-ToolTip%20Dialog-green.svg?style=flat )]( https://android-arsenal.com/details/1/8116 )
 
 An easy-to-use dialog to add tooltips to your app with teh ability to point to specific screen
  locations and also highlight views on-screen.
