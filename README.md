@@ -22,10 +22,15 @@ Gradle Setup
 In your app's `build.gradle` add 
 
 ```Groovy
+repositories {
+    jcenter()
+}
+
 dependencies {
     implementation 'com.kcrimi.tooltipdialog:tooltipdialog:1.0.0'
 }
 ```
+_Note: the `jcenter()` repository is not necessary if it already exists in `allRepositories` in the project's `build.gradle`._
 
 Usage
 -----
