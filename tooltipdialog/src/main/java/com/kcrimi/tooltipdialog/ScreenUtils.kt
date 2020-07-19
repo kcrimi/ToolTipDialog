@@ -7,7 +7,11 @@ import android.graphics.Point
 import android.view.View
 import android.view.WindowManager
 
-
+/**
+ * Copyright (c) $today.year.
+ * Created by Kevin Crimi as part of the ToolTipDialog library published for free usage as determined by the Apache 2.0 license.
+ * https://github.com/kcrimi/ToolTipDialog
+**/
 internal object ScreenUtils {
 
     fun getPixels(context: Context, dp: Float): Int {

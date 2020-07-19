@@ -11,7 +11,10 @@ import android.widget.*
 import androidx.core.content.ContextCompat
 
 /**
- * Created by kcrimi on 2/12/18.
+ * Copyright (c) $today.year.
+ * Created by Kevin Crimi as part of the ToolTipDialog library published for free usage as determined by the Apache 2.0 license.
+ * https://github.com/kcrimi/ToolTipDialog
+ *
  * A dialog with a dialog box and an arrow to be used to point out different parts of the underlying
  * UI. PeekThroughViews can be passed in from the underlying view as well in order to draw them
  * onto a background bitmap of the the Dialog which gives the appearance of those views "peeking
