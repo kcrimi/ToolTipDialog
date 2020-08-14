@@ -30,7 +30,7 @@
     </style>
 
     <!--  Override the dialog's theme for custom styling  -->
-    <style name="TooltipDialogTheme.Colorful" parent="Theme.AppCompat.Light.Dialog.Alert">
+    <style name="TooltipDialogTheme.Colorful">
         <item name="toolTipDialog.titleTextStyle">@style/TextAppearance.AppCompat.Headline.Tooltip</item>
         <item name="toolTipDialog.subtitleTextStyle">@style/TextAppearance.AppCompat.Display1.Tooltip</item>
         <item name="toolTipDialog.bodyTextStyle">@style/TextAppearance.AppCompat.Body1.Tooltip</item>
