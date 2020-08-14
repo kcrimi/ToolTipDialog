@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fonts -->
+    <attr name="toolTipDialog.titleTextStyle" format="reference"/>
+    <attr name="toolTipDialog.subtitleTextStyle" format="reference"/>
+    <attr name="toolTipDialog.bodyTextStyle" format="reference"/>
+
+    <!-- Colors -->
+    <attr name="toolTipDialog.backgroundColor" format="color"/>
+</resources>

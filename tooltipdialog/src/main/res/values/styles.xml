@@ -10,7 +10,6 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">12sp</item>
         <item name="android:lineSpacingExtra">2sp</item>
-        <item name="color">@android:color/white</item>
     </style>
 
 
@@ -25,6 +24,10 @@
     </style>
 
     <style name="TooltipDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="toolTipDialog.titleTextStyle">@style/ToolTipDialog.Text.Title</item>
+        <item name="toolTipDialog.subtitleTextStyle">@style/ToolTipDialog.Text.Subtitle</item>
+        <item name="toolTipDialog.bodyTextStyle">@style/ToolTipDialog.Text.Body</item>
+        <item name="toolTipDialog.backgroundColor">@android:color/white</item>
         <item name="android:windowMinWidthMajor">100%</item>
         <item name="android:windowMinWidthMinor">100%</item>
         <item name="android:backgroundDimEnabled">false</item>
