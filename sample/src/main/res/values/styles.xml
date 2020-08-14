@@ -17,4 +17,24 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="TextAppearance.AppCompat.Headline.Tooltip">
+        <item name="android:textColor">#E91E63</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Body1.Tooltip">
+        <item name="android:textColor">#00BCD4</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Display1.Tooltip">
+        <item name="android:textColor">#FF9800</item>
+    </style>
+
+    <!--  Override the dialog's theme for custom styling  -->
+    <style name="TooltipDialogTheme.Colorful">
+        <item name="toolTipDialog.titleTextStyle">@style/TextAppearance.AppCompat.Display1.Tooltip</item>
+        <item name="toolTipDialog.subtitleTextStyle">@style/TextAppearance.AppCompat.Headline.Tooltip</item>
+        <item name="toolTipDialog.bodyTextStyle">@style/TextAppearance.AppCompat.Body1.Tooltip</item>
+        <item name="toolTipDialog.backgroundColor">#091E95</item>
+    </style>
+
 </resources>

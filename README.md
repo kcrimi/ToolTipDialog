@@ -93,6 +93,25 @@ ToolTipDialog(this, this)
   .show()
 ```
 
+## Custom styles
+
+You can define a custom theme inheriting from `ToolTipDialog`, defining any of the following attributes for the styles you wish to override.
+
+```xml
+<style name="ToolTipDialogTheme.Custom">
+        <item name="toolTipDialog.titleTextStyle">@style/custom_title_text</item>
+        <item name="toolTipDialog.subtitleTextStyle">@style/custom_subtitle_text</item>
+        <item name="toolTipDialog.bodyTextStyle">@style/custom_body_text</item>
+        <item name="toolTipDialog.backgroundColor">@color/custom_background_color</item>
+</style>
+```
+
+Now you simply pass in this custom theme when creating a new ToolTipDialog
+
+```kotlin
+ToolTipDialog(this, this, R.style.TooltipDialogTheme_Custom)
+```
+
 FAQ
 ---
 
