@@ -88,7 +88,8 @@ class SampleActivity : AppCompatActivity() {
         buttonPointDown.setOnClickListener {
             val location = intArrayOf(0,0)
             it.getLocationInWindow(location);
-            val dialog = ToolTipDialog(this, this)
+            // Pass in a theme in order to style the dialog
+            val dialog = ToolTipDialog(this, this, R.style.TooltipDialogTheme_Colorful)
                 .title("Dialog can point down!")
                 .pointTo(location[0] + it.width / 2, location[1] - it.height)
                 .content("This is pointing down to the button you just clicked")

@@ -38,7 +38,7 @@ import androidx.core.content.ContextCompat
 class ToolTipDialog(
     context: Context,
     parentActivity: Activity,
-    themeStyleRes: Int = R.style.TooltipDialogTheme
+    themeStyleRes: Int = R.style.TooltipDialogTheme // Optional custom theme
 ) : Dialog(context, themeStyleRes) {
     private val screenUtils = ScreenUtils
     private var arrowWidth = screenUtils.getPixels(context, 15f)
