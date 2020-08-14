@@ -30,7 +30,7 @@
 
             <TextView
                 android:id="@+id/tooltip_subtitle"
-                style="@style/ToolTipDialog.Text.Subtitle"
+                style="?toolTipDialog.subtitleTextStyle"
                 tools:text="Subtitle goes here!"
                 android:layout_marginBottom="@dimen/tooltip_dialog_line_vertical_margin_small"
                 android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
 
             <TextView
                 android:id="@+id/title"
-                style="@style/ToolTipDialog.Text.Title"
+                style="?toolTipDialog.titleTextStyle"
                 tools:text="This is where your Header Goes!"
                 android:layout_marginBottom="@dimen/tooltip_dialog_line_vertical_margin_small"
                 android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
 
             <TextView
                 android:id="@+id/tooltip_content"
-                style="@style/ToolTipDialog.Text.Body"
+                style="?toolTipDialog.bodyTextStyle"
                 tools:text="This is where you can add more detailed information about your exciting new feature."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
