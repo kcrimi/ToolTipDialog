@@ -11,7 +11,7 @@ ext {
     siteUrl = 'https://github.com/kcrimi/ToolTipDialog'    // git repo url
     gitUrl = 'https://github.com/kcrimi/ToolTipDialog.git' // git repo vcs url
 
-    libraryVersion = '1.0.0'      // library version
+    libraryVersion = '1.1.0'     // library version
 
     developerId = System.getenv('BINTRAY_USER')                // This is your bintray username
     developerName = 'Kevin Crimi'              // Developer's name
