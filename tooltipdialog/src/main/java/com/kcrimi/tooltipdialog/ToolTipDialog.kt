@@ -222,6 +222,6 @@ class ToolTipDialog(
     }
 
     enum class Position {
-        AUTO, TOP, BOTTOM
+        AUTO, ABOVE, BELOW
     }
 }
