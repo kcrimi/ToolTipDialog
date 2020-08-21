@@ -1,4 +1,7 @@
 ext {
+    libraryVersion = "1.1.0"
+    libraryVersionCode = 2
+
     bintrayRepo = 'oss_android' // Repo name in bintray dashboard
     bintrayName = 'com.kcrimi.tooltipdialog' // package name of the bintray repo
 
@@ -10,8 +13,6 @@ ext {
 
     siteUrl = 'https://github.com/kcrimi/ToolTipDialog'    // git repo url
     gitUrl = 'https://github.com/kcrimi/ToolTipDialog.git' // git repo vcs url
-
-    libraryVersion = '1.1.0'     // library version
 
     developerId = System.getenv('BINTRAY_USER')                // This is your bintray username
     developerName = 'Kevin Crimi'              // Developer's name
