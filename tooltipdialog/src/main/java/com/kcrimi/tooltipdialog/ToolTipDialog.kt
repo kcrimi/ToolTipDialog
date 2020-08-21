@@ -126,15 +126,16 @@ class ToolTipDialog(
     }
 
     /**
-     * Set the position on screen for the dialog arrow to point to. This will set the dialog above
+     * Set the position on screen for the dialog arrow to point to.
+     * If Position is AUTO, this will set the dialog above
      * the point if y is below the halfway mark and below the point if the point is above halfway.
      */
-    fun pointTo(x: Int, y: Int) : ToolTipDialog {
+    fun pointTo(x: Int, y: Int, position: Position) : ToolTipDialog {
         val params = container.layoutParams as RelativeLayout.LayoutParams
 
         adjustContainerMargin(x)
 
-        if (y > windowHeight / 2 - statusBarHeight) {
+        if (position == Position.TOP || position == Position.AUTO && y > windowHeight / 2 - statusBarHeight) {
             // point is on the lower half of the screen, position dialog above
             params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
             params.bottomMargin = windowHeight - y - statusBarHeight
@@ -218,5 +219,9 @@ class ToolTipDialog(
 
     interface ToolTipListener {
         fun onClickToolTip()
+    }
+
+    enum class Position {
+        AUTO, TOP, BOTTOM
     }
 }
