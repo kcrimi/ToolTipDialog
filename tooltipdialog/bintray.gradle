@@ -1,6 +1,6 @@
 ext {
-    libraryVersion = "1.1.0"
-    libraryVersionCode = 2
+    libraryVersion = "1.1.1"
+    libraryVersionCode = 3
 
     bintrayRepo = 'oss_android' // Repo name in bintray dashboard
     bintrayName = 'com.kcrimi.tooltipdialog' // package name of the bintray repo
