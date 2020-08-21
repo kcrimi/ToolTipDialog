@@ -135,7 +135,7 @@ class ToolTipDialog(
 
         adjustContainerMargin(x)
 
-        if (position == Position.TOP || position == Position.AUTO && y > windowHeight / 2 - statusBarHeight) {
+        if (position == Position.ABOVE || (position == Position.AUTO && y > windowHeight / 2 - statusBarHeight)) {
             // point is on the lower half of the screen, position dialog above
             params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
             params.bottomMargin = windowHeight - y - statusBarHeight
