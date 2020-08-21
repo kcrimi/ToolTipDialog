@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply from: 'bintray.gradle'
+apply from: 'config.gradle'
 
 android {
     compileSdkVersion 29
@@ -27,7 +27,7 @@ android {
 
 }
 
-apply from: 'bintray.gradle'
+apply from: 'config.gradle'
 apply from: 'publish.gradle'
 
 dependencies {

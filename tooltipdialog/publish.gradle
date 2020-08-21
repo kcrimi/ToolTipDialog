@@ -68,8 +68,8 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 bintray {
-    user = System.getenv("BINTRAY_USER") // Doesn't seem to work with the envs...
-    key = System.getenv("BINTRAY_API_KEY")
+    user = developerId // Doesn't seem to work with the envs...
+    key = bintrayApiKey
 
     configurations = ['archives']
     pkg {
@@ -85,7 +85,7 @@ bintray {
             desc = libraryDescription
             gpg {
                 sign = true //Determines whether to GPG sign the files. The default is false
-                passphrase = System.getenv("BINTRAY_GPG_PASSWORD")
+                passphrase = bintrayGpgPassword
             }
         }
     }
