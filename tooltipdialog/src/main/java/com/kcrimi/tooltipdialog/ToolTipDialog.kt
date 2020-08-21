@@ -130,7 +130,7 @@ class ToolTipDialog(
      * If Position is AUTO, this will set the dialog above
      * the point if y is below the halfway mark and below the point if the point is above halfway.
      */
-    fun pointTo(x: Int, y: Int, position: Position) : ToolTipDialog {
+    fun pointTo(x: Int, y: Int, position: Position = Position.AUTO) : ToolTipDialog {
         val params = container.layoutParams as RelativeLayout.LayoutParams
 
         adjustContainerMargin(x)
