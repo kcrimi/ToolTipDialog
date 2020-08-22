@@ -1,0 +1,32 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Create Release
+on:
+  workflow_dispatch:
+jobs:
+  # This workflow contains a single job called "build"
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Runs a single command using the runners shell
+    - name: Install git-crypt
+      run: |
+        echo "Installing libssl"
+        sudo apt-get install libssl-dev
+        echo "Downloading git-crypt"
+        cd /tmp && wget https://github.com/AGWA/git-crypt/archive/0.6.0.zip
+        echo "Unzipping git-crypt"
+        unzip 0.6.0.zip && cd git-crypt-0.6.0/
+        echo "Installing git-crypt"
+        make && sudo make install
+        
+    - name: Create git-crypt key
+      run: |
+        echo "Creating the git-crypt key"
+        
+    - name: Decrypt files
+      run: |
+        echo "Decrypting repo"
