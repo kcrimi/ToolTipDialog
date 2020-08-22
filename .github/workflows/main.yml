@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: Install git-crypt
+    - name: Decrypt with git-crypt
       run: |
         echo "Installing libssl"
         sudo apt-get install libssl-dev
@@ -26,7 +26,24 @@ jobs:
     - name: Create git-crypt key
       run: |
         echo "Creating the git-crypt key"
+        echo "$GIT_CRYPT_KEY" | base64 --decode > git-crypt.key
         
     - name: Decrypt files
       run: |
         echo "Decrypting repo"
+        git-crypt unlock git-crypt.key
+        
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: test_tag
+        release_name: test_release
+        body: |
+          Changes in this Release
+          - First Change
+          - Second Change
+        draft: false
+        prerelease: false
