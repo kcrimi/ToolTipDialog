@@ -34,15 +34,21 @@ jobs:
       run: |
         echo "Decrypting repo"
         git-crypt unlock ./git-crypt.key
-        
+
+    - name: Read library version from config
+      run: |
+        LIBRARY_VERSION=$(grep "libraryVersion = '[0-9]\+.[0-9]\+.[0-9]\+'" ./tooltipdialog/config.gradle | cut -d "'" -f2)
+        echo "Library version: $LIBRARY_VERSION"
+        echo ::set-env name=LIBRARY_VERSION::$LIBRARY_VERSION
+
     - name: Create release
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: test_tag
-        release_name: test_release
+        tag_name: "v${{ env.LIBRARY_VERSION }}"
+        release_name: ${{ env.LIBRARY_VERSION }}
         body: |
           Changes in this Release
           - First Change
