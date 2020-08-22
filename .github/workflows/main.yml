@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: Decrypt with git-crypt
+    - name: Install git-crypt
       run: |
         echo "Installing libssl"
         sudo apt-get install libssl-dev
@@ -24,14 +24,16 @@ jobs:
         make && sudo make install
         
     - name: Create git-crypt key
+      env:
+        GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       run: |
         echo "Creating the git-crypt key"
-        echo "$GIT_CRYPT_KEY" | base64 --decode > git-crypt.key
+        echo "$GIT_CRYPT_KEY" | base64 --decode > ./git-crypt.key
         
     - name: Decrypt files
       run: |
         echo "Decrypting repo"
-        git-crypt unlock git-crypt.key
+        git-crypt unlock ./git-crypt.key
         
     - name: Create release
       id: create_release
