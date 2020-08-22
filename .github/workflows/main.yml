@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: Install Git-Crypt
+    - name: Install git-crypt
       run: |
         echo "Installing libssl"
         sudo apt-get install libssl-dev
@@ -22,3 +22,11 @@ jobs:
         unzip 0.6.0.zip && cd git-crypt-0.6.0/
         echo "Installing git-crypt"
         make && sudo make install
+        
+    - name: Create git-crypt key
+      run: |
+        echo "Creating the git-crypt key"
+        
+    - name: Decrypt files
+      run: |
+        echo "Decrypting repo"
