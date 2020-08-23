@@ -67,6 +67,7 @@ jobs:
         echo "Incrementing version from ${{ env.LIBRARY_VERSION }} to $NEW_VERSION"
         VERSION_CODE=$(grep "libraryVersionCode = [0-9]\+" ./tooltipdialog/config.gradle | cut -d "=" -f2 | sed 's/^[[:space:]]*//')
         NEW_VERSION_CODE=$((VERSION_CODE+1))
+        echo "Incrementing versionCode from $VERSION_CODE to $NEW_VERSION_CODE"
         REPLACE_PATTERN="s/libraryVersion = '${{ env.LIBRARY_VERSION }}'/skillshareVersion = \'$NEW_VERSION\'/g
           s/libraryVersionCode = $VERSION_CODE/skillshareVersion = $NEW_VERSION_CODE/g"
         sed "$REPLACE_PATTERN" ./tooltipdialog/config.gradle > ./tooltipdialog/config.gradle.tmp
