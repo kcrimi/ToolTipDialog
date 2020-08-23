@@ -3,7 +3,10 @@ name: Publish to Bintray
 on:
   release:
     types:
-      - published
+      - created
+  push:
+    tags: 
+      - v*
 jobs:
   build:
 
