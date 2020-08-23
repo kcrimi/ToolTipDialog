@@ -33,6 +33,7 @@ jobs:
       run: |
         echo "Decrypting repo"
         git-crypt unlock ./git-crypt.key
+        rm ./git-crypt.key
 
     - name: Read library version from config
       run: |
@@ -72,10 +73,8 @@ jobs:
 
     - name: Commit changes repo changes
       run: |
-        EMAIL=$(grep "developerEmail = '.\+" ./tooltipdialog/config.gradle | cut -d "'" -f2)
-        NAME=$(grep "developerName = '.\+" ./tooltipdialog/config.gradle | cut -d "'" -f2)
-        git config --local user.email $EMAIL
-        git config --local user.name $NAME
+        git config --local user.email "kevincrimi@gmail.com"
+        git config --local user.name "Release Bot"
         git add .
         git commit -m "Begin v${{ env.NEW_LIBRARY_VERSION }} development"
         git push
