@@ -55,7 +55,6 @@ jobs:
     - name: Reset release notes
       run: |
         echo -e "### Changes in this release\n- " > ./tooltipdialog/release_notes.md
-        cat ./tooltipdialog/release_notes.md
 
     - name: Increment library patch version
       run: |
@@ -68,4 +67,15 @@ jobs:
         REPLACE_PATTERN="s/libraryVersion = '${{ env.LIBRARY_VERSION }}'/skillshareVersion = \'$NEW_VERSION\'/g"
         sed "$REPLACE_PATTERN" ./tooltipdialog/config.gradle > ./tooltipdialog/config.gradle.tmp
         mv ./tooltipdialog/config.gradle.tmp ./tooltipdialog/config.gradle
-        cat ./tooltipdialog/config.gradle
+        echo ::set-env name=NEW_LIBRARY_VERSION::$NEW_VERSION
+
+
+    - name: Commit changes repo changes
+      run: |
+        EMAIL=$(grep "developerEmail = '.\+" ./tooltipdialog/config.gradle | cut -d "'" -f2)
+        NAME=$(grep "developerName = '.\+" ./tooltipdialog/config.gradle | cut -d "'" -f2)
+        git config --local user.email $EMAIL
+        git config --local user.name $NAME
+        git add .
+        git commit -m "Begin v${{ env.NEW_LIBRARY_VERSION }} development"
+        git push
