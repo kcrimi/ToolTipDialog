@@ -14,7 +14,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Install git-crypt
-          run: |
+        run: |
             echo "Installing libssl"
             sudo apt-get install libssl-dev
             echo "Downloading git-crypt"
@@ -30,6 +30,9 @@ jobs:
           echo "Creating the git-crypt key"
           echo "$GIT_CRYPT_KEY" | base64 --decode > ./git-crypt.key
       - name: Decrypt files
+        run: |
+          echo "Decrypting repo"
+          git-crypt unlock ./git-crypt.key
 
       - name: Publish library to bintray
         run: ./gradlew tooltipdialog:bintrayUpload
