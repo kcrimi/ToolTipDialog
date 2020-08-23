@@ -51,3 +51,21 @@ jobs:
         body_path: ./tooltipdialog/release_notes.md
         draft: false
         prerelease: false
+
+    - name: Reset release notes
+      run: |
+        echo -e "### Changes in this release\n- " > ./tooltipdialog/release_notes.md
+        cat ./tooltipdialog/release_notes.md
+
+    - name: Increment library patch version
+      run: |
+        MAJOR=$(echo ${{ env.LIBRARY_VERSION }} | cut -d "." -f1)
+        MINOR=$(echo ${{ env.LIBRARY_VERSION }} | cut -d "." -f2)
+        PATCH=$(echo ${{ env.LIBRARY_VERSION }} | cut -d "." -f3)
+        NEW_PATCH=$((PATCH+1))
+        NEW_VERSION="$MAJOR.$MINOR.$NEW_PATCH"
+        echo "Incrementing version from ${{ env.LIBRARY_VERSION }} to $NEW_VERSION"
+        REPLACE_PATTERN="s/libraryVersion = '${{ env.LIBRARY_VERSION }}'/skillshareVersion = \'$NEW_VERSION\'/g"
+        sed "$REPLACE_PATTERN" ./tooltipdialog/config.gradle > ./tooltipdialog/config.gradle.tmp
+        mv ./tooltipdialog/config.gradle.tmp ./tooltipdialog/config.gradle
+        cat ./tooltipdialog/config.gradle
