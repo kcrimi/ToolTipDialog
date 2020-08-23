@@ -1,11 +1,7 @@
 name: Android CI
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+  workflow_dispatch:
 jobs:
   build:
 
@@ -27,18 +23,13 @@ jobs:
             unzip 0.6.0.zip && cd git-crypt-0.6.0/
             echo "Installing git-crypt"
             make && sudo make install
-
-            - name: Create git-crypt key
-              env:
-                GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
-              run: |
-                echo "Creating the git-crypt key"
-                echo "$GIT_CRYPT_KEY" | base64 --decode > ./git-crypt.key
-
-            - name: Decrypt files
-              run: |
-                echo "Decrypting repo"
-                git-crypt unlock ./git-crypt.key
+      - name: Create git-crypt key
+        env:
+          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+        run: |
+          echo "Creating the git-crypt key"
+          echo "$GIT_CRYPT_KEY" | base64 --decode > ./git-crypt.key
+      - name: Decrypt files
 
       - name: Publish library to bintray
         run: ./gradlew tooltipdialog:bintrayUpload
