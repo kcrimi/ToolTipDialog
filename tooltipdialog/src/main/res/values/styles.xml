@@ -23,7 +23,15 @@
         <item name="android:lineSpacingExtra">4sp</item>
     </style>
 
+    <style name="ToolTipDialog.DialogBox">
+        <item name="android:gravity">left</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/tooltip_dialog_background</item>
+        <item name="android:padding">@dimen/tooltip_dialog_background_padding</item>
+    </style>
+
     <style name="TooltipDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="toolTipDialog.dialogBoxStyle">@style/ToolTipDialog.DialogBox</item>
         <item name="toolTipDialog.titleTextStyle">@style/ToolTipDialog.Text.Title</item>
         <item name="toolTipDialog.subtitleTextStyle">@style/ToolTipDialog.Text.Subtitle</item>
         <item name="toolTipDialog.bodyTextStyle">@style/ToolTipDialog.Text.Body</item>

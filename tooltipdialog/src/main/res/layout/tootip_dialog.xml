@@ -20,11 +20,8 @@
 
         <LinearLayout
             android:id="@+id/tooltip_dialog_box"
-            android:gravity="left"
+            style="?toolTipDialog.dialogBoxStyle"
             android:layout_below="@id/tooltip_top_arrow"
-            android:orientation="vertical"
-            android:background="@drawable/tooltip_dialog_background"
-            android:padding="@dimen/tooltip_dialog_background_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
