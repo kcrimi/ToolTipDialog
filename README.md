@@ -47,6 +47,10 @@ ToolTipDialog(this, this)
   .show() // Build and show the tooltip
 ```
 
+Title, subtitle, and content text views are hidden unless you set the content for them.
+
+If you wish to only use 1 line of text, you should prefer to use the `title` since this will be centered within the dialog box.
+
 ## Vertically positioned
 
 Great for underlining an element or section of you UI.
@@ -97,14 +101,18 @@ ToolTipDialog(this, this)
 
 You can define a custom theme inheriting from `ToolTipDialog`, defining any of the following attributes for the styles you wish to override.
 
+Eg changing fonts, colors, padding, margins, etc.
+
 ```xml
 <style name="ToolTipDialogTheme.Custom">
         <item name="toolTipDialog.titleTextStyle">@style/custom_title_text</item>
         <item name="toolTipDialog.subtitleTextStyle">@style/custom_subtitle_text</item>
         <item name="toolTipDialog.bodyTextStyle">@style/custom_body_text</item>
         <item name="toolTipDialog.backgroundColor">@color/custom_background_color</item>
+        <item name="toolTipDialog.dialogBoxStyle">@style/my_custom_dialog_box_style</item>
 </style>
 ```
+If you only want to make small tweaks, have your custom styles declare the stock styles as the parent.
 
 Now you simply pass in this custom theme when creating a new ToolTipDialog
 

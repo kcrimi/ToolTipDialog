@@ -107,10 +107,8 @@ class SampleActivity : AppCompatActivity() {
             val location = intArrayOf(0,0)
             it.getLocationInWindow(location);
             val dialog = ToolTipDialog(this, this)
-                .title("You can point to individual views!")
+                .title("You can point to any of your views on screen just like this FAB")
                 .pointTo(location[0] + it.width / 2, location[1] - it.height)
-                .content("You can point to any of your views on screen just like this FAB")
-                .subtitle("Tooltip with arrow")
                 .setToolTipListener(toolTipListener)
 
             if (shadeToggle.isChecked) {

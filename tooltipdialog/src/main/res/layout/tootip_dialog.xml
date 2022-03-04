@@ -30,6 +30,7 @@
                 style="?toolTipDialog.subtitleTextStyle"
                 tools:text="Subtitle goes here!"
                 android:layout_marginBottom="@dimen/tooltip_dialog_line_vertical_margin_small"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -42,6 +43,7 @@
 
             <TextView
                 android:id="@+id/tooltip_content"
+                android:visibility="gone"
                 style="?toolTipDialog.bodyTextStyle"
                 tools:text="This is where you can add more detailed information about your exciting new feature."
                 android:layout_marginTop="@dimen/tooltip_dialog_line_vertical_margin_small"

@@ -29,12 +29,17 @@
         <item name="android:textColor">#FF9800</item>
     </style>
 
+    <style name="CustomDialogBox" parent="ToolTipDialog.DialogBox">
+        <item name="android:padding">40dp</item>
+    </style>
+
     <!--  Override the dialog's theme for custom styling  -->
     <style name="TooltipDialogTheme.Colorful">
         <item name="toolTipDialog.titleTextStyle">@style/TextAppearance.AppCompat.Display1.Tooltip</item>
         <item name="toolTipDialog.subtitleTextStyle">@style/TextAppearance.AppCompat.Headline.Tooltip</item>
         <item name="toolTipDialog.bodyTextStyle">@style/TextAppearance.AppCompat.Body1.Tooltip</item>
         <item name="toolTipDialog.backgroundColor">#091E95</item>
+        <item name="toolTipDialog.dialogBoxStyle">@style/CustomDialogBox</item>
     </style>
 
 </resources>
