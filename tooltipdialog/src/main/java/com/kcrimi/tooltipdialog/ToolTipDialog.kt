@@ -7,6 +7,8 @@ import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.view.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.*
 import androidx.core.content.ContextCompat
 
@@ -68,6 +70,10 @@ class ToolTipDialog(
         titleText = findViewById(R.id.title)
         contentText = findViewById(R.id.tooltip_content)
         subtitleText = findViewById(R.id.tooltip_subtitle)
+
+        titleText.visibility = GONE
+        contentText.visibility = GONE
+        subtitleText.visibility = GONE
 
         // Find the size of the application window
         val usableView = parentActivity.window.findViewById<View>(Window.ID_ANDROID_CONTENT)
@@ -165,7 +171,7 @@ class ToolTipDialog(
             arrowParams.leftMargin = x - arrowWidth / 2
         }
         arrow.layoutParams = arrowParams
-        arrow.visibility = View.VISIBLE
+        arrow.visibility = VISIBLE
     }
 
     private fun adjustContainerMargin(x: Int) {
@@ -201,18 +207,21 @@ class ToolTipDialog(
 
     fun subtitle(subtitle: String): ToolTipDialog {
         subtitleText.text = subtitle
+        subtitleText.visibility = VISIBLE
         this.subtitle = subtitle
         return this
     }
 
     fun title(title: String): ToolTipDialog {
         titleText.text = title
+        titleText.visibility = VISIBLE
         this.title = title
         return this
     }
 
     fun content(content: String): ToolTipDialog {
         contentText.text = content
+        contentText.visibility = VISIBLE
         this.content = content
         return this
     }
