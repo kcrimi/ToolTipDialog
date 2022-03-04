@@ -20,11 +20,8 @@
 
         <LinearLayout
             android:id="@+id/tooltip_dialog_box"
-            android:gravity="left"
+            style="?toolTipDialog.dialogBoxStyle"
             android:layout_below="@id/tooltip_top_arrow"
-            android:orientation="vertical"
-            android:background="@drawable/tooltip_dialog_background"
-            android:padding="@dimen/tooltip_dialog_background_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -33,6 +30,7 @@
                 style="?toolTipDialog.subtitleTextStyle"
                 tools:text="Subtitle goes here!"
                 android:layout_marginBottom="@dimen/tooltip_dialog_line_vertical_margin_small"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -40,14 +38,15 @@
                 android:id="@+id/title"
                 style="?toolTipDialog.titleTextStyle"
                 tools:text="This is where your Header Goes!"
-                android:layout_marginBottom="@dimen/tooltip_dialog_line_vertical_margin_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/tooltip_content"
+                android:visibility="gone"
                 style="?toolTipDialog.bodyTextStyle"
                 tools:text="This is where you can add more detailed information about your exciting new feature."
+                android:layout_marginTop="@dimen/tooltip_dialog_line_vertical_margin_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
