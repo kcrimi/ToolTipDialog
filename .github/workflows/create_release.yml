@@ -38,13 +38,13 @@ jobs:
       run: |
         LIBRARY_VERSION=$(grep "libraryVersion = '[0-9]\+.[0-9]\+.[0-9]\+'" ./tooltipdialog/config.gradle | cut -d "'" -f2)
         echo "Library version: $LIBRARY_VERSION"
-        echo ::set-env name=LIBRARY_VERSION::$LIBRARY_VERSION
+        echo "LIBRARY_VERSION=$LIBRARY_VERSION" >> $GITHUB_ENV
 
     - name: Create release
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: "v${{ env.LIBRARY_VERSION }}"
         release_name: ${{ env.LIBRARY_VERSION }}
@@ -71,7 +71,7 @@ jobs:
           s/libraryVersionCode = $VERSION_CODE/libraryVersionCode = $NEW_VERSION_CODE/g"
         sed "$REPLACE_PATTERN" ./tooltipdialog/config.gradle > ./tooltipdialog/config.gradle.tmp
         mv ./tooltipdialog/config.gradle.tmp ./tooltipdialog/config.gradle
-        echo ::set-env name=NEW_LIBRARY_VERSION::$NEW_VERSION
+        echo "NEW_LIBRARY_VERSION=$NEW_VERSION" >> $GITHUB_ENV
 
     - name: Commit changes repo changes
       run: |
