@@ -1,6 +1,6 @@
 ToolTipDialog
 =============
-[ ![Download](https://api.bintray.com/packages/kcrimi/oss_android/com.kcrimi.tooltipdialog/images/download.svg) ](https://bintray.com/kcrimi/oss_android/com.kcrimi.tooltipdialog/_latestVersion) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-ToolTip%20Dialog-green.svg?style=flat )]( https://android-arsenal.com/details/1/8116 )
+[![](https://jitpack.io/v/kcrimi/ToolTipDialog.svg)](https://jitpack.io/#kcrimi/ToolTipDialog) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-ToolTip%20Dialog-green.svg?style=flat )]( https://android-arsenal.com/details/1/8116 )
 
 An easy-to-use dialog to add tooltips to your app with teh ability to point to specific screen
  locations and also highlight views on-screen.
@@ -23,14 +23,14 @@ In your app's `build.gradle` add
 
 ```Groovy
 repositories {
-    jcenter()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation 'com.kcrimi.tooltipdialog:tooltipdialog:1.1.0'
+    implementation 'com.kcrimi.tooltipdialog:tooltipdialog:~1.1.2'
 }
 ```
-_Note: the `jcenter()` repository is not necessary if it already exists in `allRepositories` in the project's `build.gradle`._
+_Note: the `jitpack` repository is not necessary if it already exists in `allRepositories` in the project's `build.gradle`._
 
 Usage
 -----
