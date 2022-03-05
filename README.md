@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.kcrimi.tooltipdialog:tooltipdialog:~1.1.2'
+    implementation 'com.github.kcrimi:ToolTipDialog:~1.1.4'
 }
 ```
 _Note: the `jitpack` repository is not necessary if it already exists in `allRepositories` in the project's `build.gradle`._
