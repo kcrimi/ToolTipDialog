@@ -4,8 +4,13 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Point
+import android.graphics.Rect
+import android.os.Build
 import android.view.View
+import android.view.WindowInsets
 import android.view.WindowManager
+import android.view.WindowMetrics
+
 
 /**
  * Copyright (c) $today.year.
@@ -22,9 +27,27 @@ internal object ScreenUtils {
     fun getScreenHeight(context: Context): Int {
         val wm =
             context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val size = Point()
-        wm.defaultDisplay.getSize(size)
-        return size.y
+        return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            val windowMetrics = wm.currentWindowMetrics
+            windowMetrics.bounds.height()
+        } else {
+            val size = Point()
+            val display = wm.defaultDisplay
+            display.getSize(size)
+            size.y
+        }
+    }
+
+    fun getCutoutHeight(context: Context): Int {
+        val wm =
+            context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val inset = wm.currentWindowMetrics.windowInsets.getInsets(WindowInsets.Type.tappableElement())
+            inset.top
+        } else {
+            0
+        }
+
     }
 
     fun bitmapFromView(view: View): Bitmap {

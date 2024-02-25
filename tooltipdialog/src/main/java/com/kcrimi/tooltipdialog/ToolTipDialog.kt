@@ -79,7 +79,14 @@ class ToolTipDialog(
         val usableView = parentActivity.window.findViewById<View>(Window.ID_ANDROID_CONTENT)
         windowHeight = usableView.height
         windowWidth = usableView.width
+
         statusBarHeight = screenUtils.getScreenHeight(context) - windowHeight
+        val cutoutOffset = screenUtils.getCutoutHeight(context)
+        if (cutoutOffset > 0) {
+            statusBarHeight -= (statusBarHeight - cutoutOffset)
+        }
+
+
 
         // Make Dialog window span the entire screen
         window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
@@ -105,7 +112,7 @@ class ToolTipDialog(
         peekThroughViews.forEach {
             val viewBitmap = screenUtils.bitmapFromView(it)
             val xy = IntArray(2)
-            it.getLocationOnScreen(xy)
+            it.getLocationInWindow(xy)
 
             canvas.drawBitmap(viewBitmap,
                 Rect(0, 0, it.measuredWidth, it.measuredHeight),
