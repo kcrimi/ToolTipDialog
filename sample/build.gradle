@@ -54,8 +54,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
 
-    implementation 'com.github.kcrimi:ToolTipDialog:~1.1.4' // import from jitpack
-//    implementation project(":tooltipdialog") // Local import for development purposes
+//    implementation 'com.github.kcrimi:ToolTipDialog:1.1.4+' // import from jitpack
+    implementation project(":tooltipdialog") // Local import for development purposes
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
