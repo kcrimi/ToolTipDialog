@@ -38,7 +38,7 @@ internal object ScreenUtils {
         }
     }
 
-    fun getCutoutHeight(context: Context): Int {
+    fun getTopCutoutHeight(context: Context): Int {
         val wm =
             context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -47,7 +47,17 @@ internal object ScreenUtils {
         } else {
             0
         }
+    }
 
+    fun getBottomCutoutHeight(context: Context): Int {
+        val wm =
+            context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val inset = wm.currentWindowMetrics.windowInsets.getInsets(WindowInsets.Type.tappableElement())
+            inset.bottom
+        } else {
+            0
+        }
     }
 
     fun bitmapFromView(view: View): Bitmap {

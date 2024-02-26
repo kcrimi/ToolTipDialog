@@ -81,7 +81,7 @@ class ToolTipDialog(
         windowWidth = usableView.width
 
         statusBarHeight = screenUtils.getScreenHeight(context) - windowHeight
-        val cutoutOffset = screenUtils.getCutoutHeight(context)
+        val cutoutOffset = screenUtils.getTopCutoutHeight(context)
         if (cutoutOffset > 0) {
             statusBarHeight -= (statusBarHeight - cutoutOffset)
         }
@@ -151,7 +151,8 @@ class ToolTipDialog(
         if (position == Position.ABOVE || (position == Position.AUTO && y > windowHeight / 2 - statusBarHeight)) {
             // point is on the lower half of the screen, position dialog above
             params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
-            params.bottomMargin = windowHeight - y - statusBarHeight
+            val cutoutOffset = screenUtils.getTopCutoutHeight(context) - screenUtils.getBottomCutoutHeight(context)
+            params.bottomMargin = windowHeight - y - statusBarHeight + cutoutOffset
             if (x >= 0) {
                 pointArrowTo(downArrow, x)
             }

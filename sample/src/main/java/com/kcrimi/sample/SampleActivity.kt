@@ -110,7 +110,6 @@ class SampleActivity : AppCompatActivity() {
                 .title("You can point to any of your views on screen just like this FAB")
                 .pointTo(location[0] + it.width / 2, location[1] - it.height)
                 .setToolTipListener(toolTipListener)
-
             if (shadeToggle.isChecked) {
                 dialog.addPeekThroughView(it)
             }
